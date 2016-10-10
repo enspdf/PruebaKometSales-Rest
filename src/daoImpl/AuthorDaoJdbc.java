@@ -79,7 +79,7 @@ public class AuthorDaoJdbc implements AuthorDao {
 	@Override
 	public void updateAuthor(Connection connection, Author author) throws SQLException {
 		int index = 1;
-		preparedStatement = connection.prepareStatement("UPDATE author SET first_name = ? initials = ? last_name = ? WHERE id = ?");
+		preparedStatement = connection.prepareStatement("UPDATE author SET first_name = ?, initials = ?, last_name = ? WHERE id = ?");
 		preparedStatement.setString(index++, author.getFirst_name());
 		preparedStatement.setString(index++, author.getInitials());
 		preparedStatement.setString(index++, author.getLast_name());
