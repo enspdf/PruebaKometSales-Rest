@@ -31,7 +31,7 @@ public class AuthorManagerImpl extends DatabaseConnection implements AuthorManag
 		Author authorInfo = new Author();
 		Connection connection = this.getConnection();
 		try {
-			authorInfo = dao.getAuthorById(connection, authorInfo);
+			authorInfo = dao.getAuthorById(connection, author);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

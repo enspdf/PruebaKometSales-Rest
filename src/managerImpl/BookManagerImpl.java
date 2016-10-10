@@ -31,7 +31,7 @@ public class BookManagerImpl extends DatabaseConnection implements BookManager {
 		Book bookInfo = new Book();
 		Connection connection = this.getConnection();
 		try {
-			bookInfo = dao.getBookById(connection, bookInfo);
+			bookInfo = dao.getBookById(connection, book);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

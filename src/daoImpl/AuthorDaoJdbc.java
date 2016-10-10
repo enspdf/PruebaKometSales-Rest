@@ -39,14 +39,13 @@ public class AuthorDaoJdbc implements AuthorDao {
 
 	@Override
 	public Author getAuthorById(Connection connection, Author author) throws SQLException {
-		Author authorRes = null;
+		Author authorRes = new Author();
 		int index = 1;
 		preparedStatement = connection.prepareStatement("SELECT id, first_name, initials, last_name FROM author WHERE id = ?");
 		preparedStatement.setInt(index++, author.getId());
 		try {
 			resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
-				authorRes = new Author();
 				authorRes.setId(resultSet.getInt("id"));
 				authorRes.setFirst_name(resultSet.getString("first_name"));
 				authorRes.setInitials(resultSet.getString("initials"));

@@ -37,14 +37,13 @@ public class EditorialDaoJdbc implements EditorialDao {
 
 	@Override
 	public Editorial getEditorialbyId(Connection connection, Editorial editorial) throws SQLException {
-		Editorial editorialRes = null;
+		Editorial editorialRes = new Editorial();
 		int index = 1;
 		preparedStatement = connection.prepareStatement("SELECT id, editorial_name FROM editorial WHERE id = ?");
 		preparedStatement.setInt(index++, editorial.getId());
 		try {
 			resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
-				editorialRes = new Editorial();
 				editorialRes.setId(resultSet.getInt("id"));
 				editorialRes.setEditorial_name(resultSet.getString("editorial_name"));
 			}
@@ -72,7 +71,7 @@ public class EditorialDaoJdbc implements EditorialDao {
 
 	@Override
 	public void updateEditorial(Connection connection, Editorial editorial) throws SQLException {
-		int index =1 ;
+		int index = 1 ;
 		preparedStatement = connection.prepareStatement("UPDATE editorial SET editorial_name = ? WHERE id = ?");
 		preparedStatement.setString(index++, editorial.getEditorial_name());
 		preparedStatement.setInt(index++, editorial.getId());

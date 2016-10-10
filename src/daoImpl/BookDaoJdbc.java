@@ -47,14 +47,13 @@ public class BookDaoJdbc implements BookDao {
 
 	@Override
 	public Book getBookById(Connection connection, Book book) throws SQLException {
-		Book bookRes = null;
+		Book bookRes = new Book();
 		int index = 1;
 		preparedStatement = connection.prepareStatement("SELECT boo.id, boo.id_author, boo.book_name, boo.publication_date, boo.price, boo.id_editorial, boo.page_count, boo.book_description, aut.first_name, aut.initials, aut.last_name, edit.editorial_name FROM book boo INNER JOIN author aut on boo.id_author = aut.id INNER JOIN editorial edit ON boo.id_editorial = edit.id WHERE boo.id = ?");
 		preparedStatement.setInt(index++, book.getId());
 		try {
 			resultSet = preparedStatement.executeQuery();
 			if (resultSet.next()) {
-				bookRes = new Book();
 				bookRes.setId(resultSet.getInt("id"));
 				bookRes.getAuthor().setId(resultSet.getInt("id_author"));
 				bookRes.setBook_name(resultSet.getString("book_name"));
