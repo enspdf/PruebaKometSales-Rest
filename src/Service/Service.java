@@ -36,7 +36,10 @@ public class Service {
 	public Response getAllAuthors() {
 		List<Author> authors = authorManager.getAllAuthors();
 		String data = new JSONArray(authors).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 	
 	@GET
@@ -47,7 +50,10 @@ public class Service {
 		author.setId(id);
 		Author authorRes = authorManager.getAuthorById(author);
 		String data = new JSONObject(authorRes).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 	
 	@POST
@@ -62,7 +68,10 @@ public class Service {
 		author.setLast_name(last_name);
 		authorManager.saveAuthor(author);
 		String data = new JSONObject(author).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 	
 	@PUT
@@ -79,7 +88,10 @@ public class Service {
 		author.setLast_name(last_name);
 		authorManager.updateAuthor(author);
 		String data = new JSONObject(author).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 	
 	@DELETE
@@ -90,7 +102,10 @@ public class Service {
 		author.setId(id);
 		authorManager.deleteAuthor(author);
 		String data = new JSONObject(author).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 	
 	@GET
@@ -99,7 +114,10 @@ public class Service {
 	public Response getAllEditorials() {
 		List<Editorial> editorials = editorialManager.getAllEditorials();
 		String data = new JSONArray(editorials).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 	
 	@GET
@@ -110,7 +128,10 @@ public class Service {
 		editorial.setId(id);
 		Editorial editorialRes = editorialManager.getEditorialById(editorial);
 		String data = new JSONObject(editorialRes).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 	
 	@POST
@@ -121,7 +142,10 @@ public class Service {
 		editorial.setEditorial_name(editorial_name);
 		editorialManager.saveEditorial(editorial);
 		String data = new JSONObject(editorial).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 	
 	@PUT
@@ -134,7 +158,10 @@ public class Service {
 		editorial.setEditorial_name(editorial_name);
 		editorialManager.updateEditorial(editorial);
 		String data = new JSONObject(editorial).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 	
 	@DELETE
@@ -145,7 +172,10 @@ public class Service {
 		editorial.setId(id);
 		editorialManager.deleteEditorial(editorial);
 		String data = new JSONObject(editorial).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 	
 	@GET
@@ -154,7 +184,10 @@ public class Service {
 	public Response getAllBooks() {
 		List<Book> books = bookManager.getallBooks();
 		String data = new JSONArray(books).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 	
 	@GET
@@ -166,7 +199,10 @@ public class Service {
 		Book bookRes = new Book();
 		bookRes = bookManager.getBookById(bookRes);
 		String data = new JSONObject(bookRes).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 	
 	@POST
@@ -189,7 +225,10 @@ public class Service {
 		book.setBook_description(book_description);
 		bookManager.saveBook(book);
 		String data = new JSONObject(book).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 	
 	@PUT
@@ -214,7 +253,10 @@ public class Service {
 		book.setId(id);
 		bookManager.updateBook(book);
 		String data = new JSONObject(book).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 	
 	@DELETE
@@ -225,6 +267,9 @@ public class Service {
 		book.setId(id);
 		bookManager.deleteBook(book);
 		String data = new JSONObject(book).toString();
-		return Response.status(200).entity(data).build();
+		return Response.status(200).entity(data)
+				.header("Access-Control-Allow-Origin", "*")
+	            .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS")
+	            .header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type, X-Codingpedia,Authorization").build();
 	}
 }
