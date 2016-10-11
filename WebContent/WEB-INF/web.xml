@@ -9,6 +9,10 @@
 
 		<servlet-name>RestPool</servlet-name>
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
+  			<param-value>util.CORSFilter</param-value>
+		</init-param>
 		<load-on-startup>1</load-on-startup>
 
 	</servlet>
