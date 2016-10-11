@@ -165,7 +165,7 @@ public class Service {
 		Book book = new Book();
 		book.setId(id);
 		Book bookRes = new Book();
-		bookRes = bookManager.getBookById(bookRes);
+		bookRes = bookManager.getBookById(book);
 		String data = new JSONObject(bookRes).toString();
 		return Response.status(200).entity(data).build();
 	}
